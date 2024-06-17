@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="left-col">
+      <div class="cell">{{ date | date : 'z' }}</div>
+    </div>
+    <div class="right-col">
+      <div class="cell">
+        <div>{{ date | date : 'EEE.' }}</div>
+        <div>{{ date | date : 'd' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="left-col">
+      <div class="cell" *ngFor="let schedule of schedules">{{ schedule.startDate | date : 'HH:mm' }}</div>
+    </div>
+    <div class="right-col">
+      <div class="cell" *ngFor="let schedule of schedules">
+        <div class="slot" *ngFor="let slot of schedule.slots">
+          <ir-scheduler-event *ngFor="let event of slot.events"></ir-scheduler-event>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

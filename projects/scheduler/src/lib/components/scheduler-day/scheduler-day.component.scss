@@ -1,0 +1,53 @@
+$border: 1px solid grey;
+$cellHeight: 60px;
+$leftColMinWidth: 100px;
+
+.wrapper,
+.header,
+.body {
+  display: flex;
+}
+
+.wrapper {
+  max-height: 100%;
+  flex-direction: column;
+  border: $border;
+  box-sizing: border-box;
+}
+
+.header {
+  border-bottom: $border;
+}
+
+.body {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.left-col,
+.right-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.left-col {
+  min-width: $leftColMinWidth;
+  border-right: $border;
+}
+
+.right-col {
+  flex-grow: 1;
+}
+
+.cell {
+  height: $cellHeight;
+
+  &:not(:last-child) {
+    border-bottom: $border;
+  }
+}
+
+.slot {
+  height: calc($cellHeight / 4);
+}
