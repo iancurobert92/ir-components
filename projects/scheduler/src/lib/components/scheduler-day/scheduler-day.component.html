@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="header">
     <div class="left-col">
-      <div class="cell">{{ date | date : 'z' }}</div>
+      <div data-testid="timezone" class="cell">{{ date | date : 'z' }}</div>
     </div>
     <div class="right-col">
       <div class="cell">
@@ -18,7 +18,11 @@
     <div class="right-col">
       <div class="cell" *ngFor="let schedule of schedules">
         <div class="slot" *ngFor="let slot of schedule.slots">
-          <ir-scheduler-event *ngFor="let event of slot.events"></ir-scheduler-event>
+          <ir-scheduler-event
+            *ngFor="let event of slot.events"
+            [title]="event.title"
+            [description]="event.description"
+          ></ir-scheduler-event>
         </div>
       </div>
     </div>
