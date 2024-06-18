@@ -1,6 +1,7 @@
 import { DatePipe, NgFor } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { SchedulerEventComponent } from '../scheduler-event/scheduler-event.component';
+import { SchedulerEvent } from '../../models';
 
 interface Schedule {
   startDate: string;
@@ -11,12 +12,7 @@ interface Schedule {
 interface TimeSlot {
   startDate: string;
   endDate: string;
-  events: Event[];
-}
-
-interface Event {
-  title: string;
-  description: string;
+  events: SchedulerEvent[];
 }
 
 @Component({
@@ -27,7 +23,7 @@ interface Event {
   styleUrl: './scheduler-day.component.scss',
 })
 export class SchedulerDayComponent implements OnInit {
-  @Input({ required: true }) date!: Date;
+  @Input({ required: true }) date: Date = new Date();
   @Input() slotSize: number = 15;
   schedules: Schedule[] = [];
 
