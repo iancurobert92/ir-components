@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SchedulerEventComponent } from './scheduler-event.component';
 import { By } from '@angular/platform-browser';
 
-fdescribe('SchedulerEventComponent', () => {
+describe('SchedulerEventComponent', () => {
   let component: SchedulerEventComponent;
   let fixture: ComponentFixture<SchedulerEventComponent>;
 
