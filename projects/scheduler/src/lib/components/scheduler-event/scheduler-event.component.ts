@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SchedulerEvent } from '../../models/scheduler-event.model';
 
 @Component({
   selector: 'ir-scheduler-event',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './scheduler-event.component.html',
   styleUrl: './scheduler-event.component.scss',
 })
-export class SchedulerEventComponent {
-  @Input() title?: string;
+export class SchedulerEventComponent implements SchedulerEvent {
+  @Input({ required: true }) title!: string;
   @Input() description?: string;
 }
